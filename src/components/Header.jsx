@@ -1,11 +1,11 @@
 function Header(){
     return(
         <>
-            <div className="bg-white flex flex-row items-center justify-between p-5 px-55">
-                <img src="../public/logoRoxa.png" alt="logo" className="w-10 h-10" />
+            <div className="bg-white flex flex-row items-center justify-between p-5 px-85">
+                <a href="#hero"><img src="../public/logoRoxa.png" alt="logo" className="w-10 h-10" /></a>
                 <div id="nav-bar" className="flex justify-center items-center">
                     <ul className="flex flex-row gap-15 font-medium text-(color:--text-secondary) text-lg">
-                        <li><a href="" className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1">Resumo</a></li>
+                        <li><a href="#resumo" className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1">Resumo</a></li>
                         <li><a href="" className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1">Copa</a></li>
                         <li><a href="#footer" className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1">Contato</a></li>
                     </ul>

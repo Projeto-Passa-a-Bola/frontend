@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import NavbarLogada from "./NavbarLogada";
+
 
 function HomeLogada() {
   const navigate = useNavigate();
@@ -14,6 +16,10 @@ function HomeLogada() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white text-gray-800">
+      <div>
+        {/* Navbar exclusiva da área logada */}
+        <NavbarLogada />
+      </div>
       <h1 className="text-4xl font-bold mb-4">Bem-vindo(a) de volta!</h1>
       <p className="text-xl">Você está logado e pode acessar todo o nosso conteúdo.</p>
       <div className="mt-8">

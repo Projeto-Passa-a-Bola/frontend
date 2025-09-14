@@ -28,7 +28,7 @@ function Login() {
 
     if (response.ok) {
       localStorage.setItem('authToken', data.token);
-      navigate('/');
+      navigate('/painel');
     } else {
       setErro(data.msg || 'E-mail ou senha incorretos.');
     }

@@ -1,32 +1,35 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Inicio from "./components/Inicio";
-import Login from './components/Login.jsx';
-import Register from './components/Register.jsx'; 
-import HomeLogada from './components/HomeLogada.jsx'; 
-import PrivateRoute from './components/PrivateRoute.jsx'; // A linha que você precisa
-import HomePageWrapper from './components/HomePageWrapper.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PublicLayout from "./components/PublicLayout";
+import PrivateLayout from "./components/PrivateLayout";
+import HomePageWrapper from "./components/HomePageWrapper";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import HomeLogada from "./components/HomeLogada";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<HomePageWrapper />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        
-        <Route 
-          path="/painel" 
+        {/* Layout público */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<HomePageWrapper />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+
+        {/* Layout privado */}
+        <Route
           element={
             <PrivateRoute>
-              <HomeLogada />
+              <PrivateLayout />
             </PrivateRoute>
-          } 
-        />
+          }
+        >
+          <Route path="/painel" element={<HomeLogada />} />
+          {/* aqui você pode adicionar outras rotas privadas */}
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

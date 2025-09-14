@@ -3,22 +3,44 @@ import video from "../../public/videoInicio.mp4";
 function Inicio(){
     return(
         <>               
-            <div id="Hero" className="flex justify-start items-center p-50 px-60 bg-gradient-to-br from-zinc-500 to-zinc-200">
-                <div className="grid items-start w-150 gap-15">
-                    <h1 className="text-6xl font-bold text-white">Passa a <span className="text-purple-500">Bola</span></h1>
-                    <p className="text-white text-2xl">A plataforma profissional que conecta atletas, técnicos e organizações do futebol feminino. Transformando carreiras e elevando o esporte a um novo patamar.</p>
-                    <button className="p-5 w-50 h-10 items-center justify-center flex bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer rounded-lg shadow-lg text-white hover:scale-105 transition font-bold">Comece Agora →</button>
+            <div id="Hero" className="relative flex justify-start items-center p-50 px-60">
+                {/* Contêiner do Vídeo de Fundo */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                    <video
+                        className="w-full h-full object-cover"
+                        src={video}
+                        autoPlay
+                        loop
+                        muted
+                    ></video>
+                </div>
+
+                {/* Camada de Escurecimento (Overlay) */}
+                <div className="absolute inset-0 z-0 bg-black opacity-50"></div> 
+                {/* Você pode ajustar a opacidade (opacity-X) e a cor (bg-black/bg-gray-900) conforme preferir */}
+
+                {/* Conteúdo por cima do vídeo e do overlay */}
+                <div className="relative z-10 grid items-start w-150 gap-15">
+                    <h1 className="text-6xl font-bold text-white">
+                        Passa a <span className="text-purple-500">Bola</span>
+                    </h1>
+                    <p className="text-white text-2xl">
+                        A plataforma profissional que conecta atletas, técnicos e organizações do futebol feminino. Transformando carreiras e elevando o esporte a um novo patamar.
+                    </p>
+                    <button className="p-5 w-50 h-10 items-center justify-center flex bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer rounded-lg shadow-lg text-white hover:scale-105 transition font-bold">
+                        Comece Agora →
+                    </button>
                     <div id="Pesquisa" className="flex flex-row items-center justify-between">
                         <div className="flex flex-col items-center justify-center gap-3">
-                            <h1 className="text-4xl text-purple-500 font-bold"> 1.2K+ </h1>
+                            <h1 className="text-4xl text-purple-500 font-bold">1.2K+</h1>
                             <p className="text-white font-semibold text-lg">Atletas Profissionais</p>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-3">
-                            <h1 className="text-4xl text-purple-500 font-bold"> 150+ </h1>
+                            <h1 className="text-4xl text-purple-500 font-bold">150+</h1>
                             <p className="text-white font-semibold text-lg">Clubes Parceiros</p>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-3">
-                            <h1 className="text-4xl text-purple-500 font-bold"> 50+ </h1>
+                            <h1 className="text-4xl text-purple-500 font-bold">50+</h1>
                             <p className="text-white font-semibold text-lg">Competições</p>
                         </div>
                     </div>

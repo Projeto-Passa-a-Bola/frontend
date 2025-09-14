@@ -12,33 +12,26 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
+    const response = await fetch('http://localhost:3000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, senha: password }),
+    });
 
-    try {
-      // Altere a URL para corresponder à sua rota de login no backend
-      const response = await fetch('http://localhost:3000/api/auth/login', { 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // Envia apenas o email e a senha
-         body: JSON.stringify({
-        email: email, // Verifica se a variável do estado é 'email'
-        senha: password // Verifica se a variável do estado é 'password'
-      }),
-      });
+    const data = await response.json();
 
-      const data = await response.json();
+    console.log('Resposta do backend:', data); // Adicione esta linha
 
-      if (response.ok) { // Sucesso (código de status 200-299)
-        alert('Login bem-sucedido!');
-        // Se o seu backend retornar um token, você pode salvá-lo aqui:
-        // localStorage.setItem('token', data.token);
-        navigate('/'); // Redireciona para a página inicial
-      } else {
-        // Exibe a mensagem de erro que vem do backend
-        setErro(data.message || 'E-mail ou senha incorretos.');
-      }
+    if (response.ok) {
+      localStorage.setItem('authToken', data.token);
+      navigate('/');
+    } else {
+      setErro(data.msg || 'E-mail ou senha incorretos.');
+    }
     } catch (error) {
       console.error('Erro na requisição:', error);
       setErro('Erro de conexão com o servidor.');

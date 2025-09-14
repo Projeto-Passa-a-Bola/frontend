@@ -1,45 +1,64 @@
 // src/components/Register.jsx
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Register() {
-  const [nome, setNome] = useState('');
-  const [sobrenome, setSobrenome] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmaSenha, setConfirmaSenha] = useState('');
-  const [erro, setErro] = useState('');
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmaSenha, setConfirmaSenha] = useState("");
+  const [erro, setErro] = useState("");
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const handleRegister = async (e) => {
+  e.preventDefault();
 
-    // Validação da senha
-    if (senha !== confirmaSenha) {
-      setErro('As senhas não coincidem!');
-      return; // Interrompe a função
+  if (senha !== confirmaSenha) {
+    setErro('As senhas não coincidem!');
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:3000/api/auth/register', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Mude o corpo da requisição para corresponder aos nomes dos campos do seu backend
+      body: JSON.stringify({
+        name: nome + ' ' + sobrenome, // Concatena nome e sobrenome em um único campo
+        email: email,
+        senha: senha,
+        confirmasenha: confirmaSenha // Adiciona o campo de confirmação de senha
+      }),
+    });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Verifica se a resposta foi bem-sucedida (status 200-299)
+        alert("Registro bem-sucedido! Redirecionando para o login...");
+        navigate("/login"); // Redireciona para a página de login
+      } else {
+        setErro(data.message || "Erro ao registrar. Tente novamente.");
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      setErro("Erro de conexão com o servidor.");
     }
-
-    setErro(''); // Limpa a mensagem de erro se a validação passar
-
-    // Aqui você pode adicionar a lógica para enviar os dados para um backend.
-    // console.log('Dados do registro:', { nome, sobrenome, email, senha });
-
-    alert('Registro bem-sucedido!');
-    // Limpar os campos do formulário
-    setNome('');
-    setSobrenome('');
-    setEmail('');
-    setSenha('');
-    setConfirmaSenha('');
   };
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Cadastre-se</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Cadastre-se
+        </h2>
         <form onSubmit={handleRegister}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nome">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="nome"
+            >
               Nome
             </label>
             <input
@@ -47,13 +66,16 @@ function Register() {
               id="nome"
               type="text"
               placeholder="Seu nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="sobrenome">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="sobrenome"
+            >
               Sobrenome
             </label>
             <input
@@ -61,13 +83,16 @@ function Register() {
               id="sobrenome"
               type="text"
               placeholder="Seu sobrenome"
-              value={sobrenome}
-              onChange={(e) => setSobrenome(e.target.value)}
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               E-mail
             </label>
             <input
@@ -81,7 +106,10 @@ function Register() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="senha">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="senha"
+            >
               Senha
             </label>
             <input
@@ -95,7 +123,10 @@ function Register() {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmaSenha">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="confirmaSenha"
+            >
               Confirme a Senha
             </label>
             <input

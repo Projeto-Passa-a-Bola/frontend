@@ -41,9 +41,12 @@ function Header() {
           >
             Entrar
           </Link>
-          <button className="p-5 h-10 items-center justify-center flex bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer rounded-lg shadow-lg text-white hover:scale-105 transition">
+          <Link
+            to="/register"
+            className="p-5 h-10 items-center justify-center flex bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer rounded-lg shadow-lg text-white hover:scale-105 transition"
+          >
             Cadastro
-          </button>
+          </Link>
           {/* <button className="p-1 bg-slate-200 cursor-pointer rounded-lg shadow-lg">D</button> */}
         </div>
       </div>

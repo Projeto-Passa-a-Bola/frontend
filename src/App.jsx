@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import HomeLogada from "./components/HomeLogada";
 import PrivateRoute from "./components/PrivateRoute";
+import Campeonato from "./components/Campeonato";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           }
         >
           <Route path="/painel" element={<HomeLogada />} />
+          <Route path="/campeonato" element={<Campeonato/>}/>
           {/* aqui você pode adicionar outras rotas privadas */}
         </Route>
       </Routes>

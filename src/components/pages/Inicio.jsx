@@ -70,7 +70,7 @@ function Inicio(){
                     <div id="copa" className="flex flex-col bg-amber-50 justify-center items-center">
                         <div className="p-10 flex flex-col items-center gap-15">
                             <h1 className=" text-purple-500 text-4xl font-bold uppercase">Copa Passa a Bola</h1>
-                            <img src="../public/resumoImg2.png" alt="foto" className="w-100 h-100 rounded-xl"/>
+                            <img src="../public/copaTaca.png" alt="foto" className="w-100 h-100 rounded-xl"/>
                             <p className="text-zinc-700">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed vulputate justo. Quisque ac metus venenatis, 
                                 interdum sem sed, tristique purus. Pellentesque et iaculis nibh. Etiam turpis eros, vehicula quis condimentum nec, 

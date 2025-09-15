@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importe para redirecionar
 import { Link } from 'react-router-dom'; // Se ainda não tiver importado
+import video from "../../../public/loginImg.png"
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -38,17 +39,18 @@ function Login() {
     }
   };
 
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+  return (  
+    <div className='flex flex-row bg-gradient-to-br from-purple-500 to-blue-400 h-screen'>
+    <div className="relative flex items-center justify-center flex-2">
+      <div className="relative flex flex-col p-20 justify-center items-center bg-zinc-100 rounded-2xl shadow-md gap-10">
+        <h2 className="text-2xl font-bold text-center text-black mb-6">Conecte-se</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label className="block text-black text-sm font-bold mb-2" htmlFor="email">
               E-mail
             </label>
             <input
-              className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
               id="email"
               type="email"
               placeholder="seu@email.com"
@@ -58,11 +60,11 @@ function Login() {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label className="block text-black text-sm font-bold mb-2" htmlFor="password">
               Senha
             </label>
             <input
-              className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
               id="password"
               type="password"
               placeholder="********"
@@ -74,14 +76,14 @@ function Login() {
           {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
           <div className="flex items-center justify-between">
             <button
-              className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
+              className="w-full bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
               type="submit"
             >
               Entrar
             </button>
           </div>
         </form>
-        <p className="mt-4 text-center text-gray-600 text-sm">
+        <p className="mt-4 text-center text-gray-800 text-sm">
           Não tem uma conta?{' '}
           <Link to="/register" className="text-purple-500 hover:text-purple-700 font-bold">
             Cadastre-se
@@ -89,6 +91,10 @@ function Login() {
         </p>
       </div>
     </div>
+    <div id='direita' className='flex flex-2 justify-end'>
+        <img src="../../../public/loginImg.png" alt="" className=''/>
+    </div>
+    </div>  
   );
 }
 

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HeaderLogado } from "../navigation";
+import SearchComponent from '../SearchComponent';
 
 
 function HomeLogada() {

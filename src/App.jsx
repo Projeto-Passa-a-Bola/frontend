@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { buscarJogadoras, buscarTimesPorNome } from "../services/api";
 import { 
   PublicLayout, 
   PrivateLayout, 
@@ -34,6 +35,8 @@ function App() {
           <Route path="/painel" element={<HomeLogada />} />
           <Route path="/campeonato" element={<Campeonato/>}/>
           {/* aqui você pode adicionar outras rotas privadas */}
+          <Route path="/buscar-times" element={<buscarTimesPorNome />} />
+          <Route path="/buscar-jogadoras" element={<BuscarJogadoras />} />
         </Route>
       </Routes>
     </BrowserRouter>

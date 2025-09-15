@@ -1,3 +1,4 @@
+import FormContact from "../ui/FormContact";
 import video from "/videoInicio.mp4";
 
 function Inicio(){
@@ -84,6 +85,7 @@ function Inicio(){
                     </div>
                 </div>
             </div>
+            <FormContact />
         </>
     )
 }

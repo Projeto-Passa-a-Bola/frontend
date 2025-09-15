@@ -74,13 +74,17 @@ function Login() {
             />
           </div>
           {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
-          <div className="flex items-center justify-between">
-            <button
-              className="w-full bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
-              type="submit"
-            >
-              Entrar
-            </button>
+          <div className="flex items-center justify-between"> 
+              <button 
+                
+                className="w-full bg-linear-to-r from-purple-500 to-violet-500 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
+                type="submit"
+              >
+              <Link to="/HomeLogada"></Link>
+                Entrar
+              </button>
+              
+    
           </div>
         </form>
         <p className="mt-4 text-center text-gray-800 text-sm">

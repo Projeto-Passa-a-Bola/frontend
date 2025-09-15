@@ -1,8 +1,7 @@
 // src/components/HomePageWrapper.jsx
 
 import React from 'react';
-import Inicio from './Inicio';
-import HomeLogada from './HomeLogada';
+import { Inicio, HomeLogada } from './';
 
 function HomePageWrapper() {
   const token = localStorage.getItem('authToken');

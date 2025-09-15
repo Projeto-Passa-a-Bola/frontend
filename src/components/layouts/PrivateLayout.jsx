@@ -1,11 +1,11 @@
 // src/components/PrivateLayout.jsx
-import NavbarLogada from "./NavbarLogada";
+import { HeaderLogado } from "../navigation";
 import { Outlet } from "react-router-dom";
 
 function PrivateLayout() {
   return (
     <>
-      <NavbarLogada />
+      <HeaderLogado />
       <main className="min-h-screen p-6">
         <Outlet /> {/* Aqui entram as páginas privadas */}
       </main>

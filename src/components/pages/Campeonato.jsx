@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavbarLogada from "./NavbarLogada";
+import { HeaderLogado, HeroCampeonato } from "../navigation";
+
 
 function Campeonato() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function Campeonato() {
 
   return (
     <div>
-      <NavbarLogada />
+      
       
       {/* SubNav */}
       <nav className="bg-gray-100 border-b border-gray-200">

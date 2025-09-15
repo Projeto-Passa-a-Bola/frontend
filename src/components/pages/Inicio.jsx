@@ -1,4 +1,4 @@
-import video from "../../public/videoInicio.mp4";
+import video from "/videoInicio.mp4";
 
 function Inicio(){
     return(

@@ -1,12 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PublicLayout from "./components/PublicLayout";
-import PrivateLayout from "./components/PrivateLayout";
-import HomePageWrapper from "./components/HomePageWrapper";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import HomeLogada from "./components/HomeLogada";
-import PrivateRoute from "./components/PrivateRoute";
-import Campeonato from "./components/Campeonato";
+import { 
+  PublicLayout, 
+  PrivateLayout, 
+  HomePageWrapper, 
+  Login, 
+  Register, 
+  HomeLogada,
+  HeaderLogado,
+  PrivateRoute, 
+  Campeonato,
+  HeroCampeonato,
+} from "./components";
 
 function App() {
   return (

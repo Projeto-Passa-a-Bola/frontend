@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavbarLogada from "./NavbarLogada";
+import { HeaderLogado } from "../navigation";
 
 
 function HomeLogada() {

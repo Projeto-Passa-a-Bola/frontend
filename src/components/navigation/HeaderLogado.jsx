@@ -11,7 +11,7 @@ function HeaderLogado() {
           <ul className="flex flex-row gap-15 font-medium text-(color:--text-secondary) text-lg">
             <li>
               <a
-                href="#home"
+                href="painel"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Home

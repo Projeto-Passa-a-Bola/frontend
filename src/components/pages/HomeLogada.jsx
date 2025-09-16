@@ -15,24 +15,24 @@ function HomeLogada() {
   const proximosJogos = [
     {
       id: 1,
-      timeA: "Águias Douradas",
-      timeB: "Fênix FC",
+      timeA: "Time 1",
+      timeB: "Time 2",
       horario: "15:00",
       data: "25/09",
       local: "Estádio Municipal"
     },
     {
       id: 2,
-      timeA: "Valkírias",
-      timeB: "Guardiãs da Floresta",
+      timeA: "Time 3",
+      timeB: "Time 4",
       horario: "17:30",
       data: "25/09",
       local: "Arena Litorânea"
     },
     {
       id: 3,
-      timeA: "Panteras Negras",
-      timeB: "Lobas do Gelo",
+      timeA: "Time 5",
+      timeB: "Time 6",
       horario: "19:00",
       data: "26/09",
       local: "Complexo Esportivo Central"

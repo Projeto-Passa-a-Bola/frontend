@@ -136,9 +136,11 @@ function Campeonato() {
         </nav>
 
         <div className="absolute bottom-6 left-6 right-6">
+          <a href="jogadora">
           <button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 px-6 rounded-lg font-bold hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg">
             Participar do Evento
           </button>
+          </a>
         </div>
       </div>
 

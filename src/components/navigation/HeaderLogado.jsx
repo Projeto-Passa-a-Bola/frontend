@@ -27,7 +27,7 @@ function HeaderLogado() {
             </li>
             <li>
               <a
-                href="#sobre"
+                href="/sobre"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Sobre

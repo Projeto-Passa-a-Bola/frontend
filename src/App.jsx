@@ -10,6 +10,7 @@ import {
   PrivateRoute, 
   Campeonato,
   HeroCampeonato,
+  Sobre,
 } from "./components";
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
         >
           <Route path="/painel" element={<HomeLogada />} />
           <Route path="/campeonato" element={<Campeonato/>}/>
+          <Route path="/sobre" element={<Sobre />} />
+          
           {/* aqui você pode adicionar outras rotas privadas */}
         </Route>
       </Routes>

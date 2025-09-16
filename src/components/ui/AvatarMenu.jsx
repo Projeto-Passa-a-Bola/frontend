@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { User, Settings, LogOut, Sun, Moon, Palette } from 'lucide-react';
 import { userService } from '../../services/api';
 
 const AvatarMenu = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [user, setUser] = useState(null);
@@ -56,7 +58,7 @@ const AvatarMenu = () => {
 
   const handleProfile = () => {
     // Navegar para página de perfil
-    console.log('Ir para perfil');
+    navigate('/perfil');
     setIsOpen(false);
   };
 

@@ -48,8 +48,8 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmj
 1.  Clone este repositório para a sua máquina:
 
     ```bash
-    git clone <URL_DO_REPOSITÓRIO>
-    cd <NOME_DO_PROJETO>
+    git clone https://github.com/Projeto-Passa-a-Bola/frontend.git
+    cd Projeto-Passa-a-Bola
     ```
 
 2.  Instale as dependências do projeto:

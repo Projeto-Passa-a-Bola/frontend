@@ -11,6 +11,7 @@ import {
   Campeonato,
   HeroCampeonato,
   Sobre,
+  RegisterPlayer,
 } from "./components";
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/painel" element={<HomeLogada />} />
           <Route path="/campeonato" element={<Campeonato/>}/>
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/jogadora" element={<RegisterPlayer />} />
           
           {/* aqui você pode adicionar outras rotas privadas */}
         </Route>

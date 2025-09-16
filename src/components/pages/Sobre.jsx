@@ -66,7 +66,6 @@ const Sobre = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-purple-100">
       <SideNav sections={pageSections} />
-
        <section id="hero" className="relative flex items-center justify-center min-h-[75vh] bg-gradient-to-br from-purple-50 via-white to-purple-100 overflow-hidden py-12">
         <div
           className="absolute inset-0 opacity-5"
@@ -235,7 +234,7 @@ const Sobre = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contato" className="py-20 px-4 0 bg-purple-500 ">
+      <section id="contato" className="py-20 px-4 0 bg-purple-600 ">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6 text-white">Faça Parte da Nossa História</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto text-pretty">

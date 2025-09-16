@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { AvatarMenu } from "../ui";
 
 function HeaderLogado() {
   return (
@@ -41,19 +42,11 @@ function HeaderLogado() {
                 Contato
               </a>
             </li>
-            <li>
-              <a
-                href="#perfil"
-                className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
-              >
-                Perfil
-              </a>
-            </li>
+            
           </ul>
         </div>
         <div id="botoes" className="flex gap-20 font-medium">
-          
-          {/* <button className="p-1 bg-slate-200 cursor-pointer rounded-lg shadow-lg">D</button> */}
+          <AvatarMenu />
         </div>
       </div>
     </>

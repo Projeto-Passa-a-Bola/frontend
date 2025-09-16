@@ -40,6 +40,8 @@ function App() {
           {/* aqui você pode adicionar outras rotas privadas */}
         </Route>
       </Routes>
+      
+      {/* Test Login removido */}
     </BrowserRouter>
   );
 }

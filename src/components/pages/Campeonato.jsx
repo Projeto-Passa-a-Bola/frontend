@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X, User, FileText, Trophy, BarChart3 } from 'lucide-react';
+import { Menu, X, User, FileText, Trophy, BarChart3, Calendar } from 'lucide-react';
 
 // Usa imagem do diretório public
 const heroPlayer = '/chute.png';
@@ -71,10 +71,27 @@ function Campeonato() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
+  const downloadRegulamento = () => {
+    try {
+      // Método 1: Download direto
+      const link = document.createElement('a');
+      link.href = '/regulamento-copa-passa-bola.pdf';
+      link.download = 'Regulamento-Copa-Passa-a-Bola-2024.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      // Método 2: Fallback - abrir em nova aba
+      console.log('Erro no download direto, abrindo em nova aba:', error);
+      window.open('/regulamento-copa-passa-bola.pdf', '_blank');
+    }
+  };
+
   const menuItems = [
     { label: 'Início', href: '#inicio', icon: User },
-    { label: 'Regulamento', href: '#inscricoes', icon: FileText },
-    { label: 'Premiação', href: '#inscricoes', icon: Trophy },
+    { label: 'Regulamento', href: '/regulamento', icon: FileText },
+    { label: 'Jogos', href: 'Colocar rota de jogos', icon: Calendar },
     { label: 'Estatísticas', href: '#inscricoes', icon: BarChart3 },
   ];
 
@@ -173,8 +190,16 @@ function Campeonato() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-14">
-                <a href="#" className="btn-copa-primary text-lg py-3">INSCREVER EQUIPE</a>
-                <a href="#" className="btn-copa-secondary text-lg py-3">VER REGULAMENTO</a>
+              <a href="/jogadora">
+                  <button className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
+                    Inscrever Equipe
+                  </button>
+              </a>
+              <a href="/regulamento">
+                  <button className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
+                    Ver Regulamento
+                  </button>
+              </a>
               </div>
             </div>
 
@@ -209,21 +234,7 @@ function Campeonato() {
       </section>
 
       {/* Info Section */}
-      <section id="inscricoes" className="py-20" style={{ background: 'var(--gradient-section)' }}>
-        <div className="container mx-auto px-6">
-          <h2 className="text-5xl font-black text-center mb-16 gradient-text">INFORMAÇÕES DO CAMPEONATO</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <InfoCard icon="📅" title="Período" description="15 de Outubro a 15 de Novembro de 2025" details="Jogos aos fins de semana" delay={0} />
-            <InfoCard icon="📍" title="Local" description="Complexo Esportivo Municipal" details="São Paulo - SP" delay={100} />
-            <InfoCard icon="🏆" title="Premiação" description="R$ 50.000 em prêmios" details="Troféus e medalhas" delay={200} />
-            <InfoCard icon="👥" title="Categorias" description="Sub-17 • Sub-20" details="Profissional • Amador" delay={300} />
-            <InfoCard icon="💰" title="Investimento" description="Taxa: R$ 300,00" details="Inclui arbitragem" delay={400} />
-            <InfoCard icon="📋" title="Requisitos" description="18 jogadoras por equipe" details="Documentação completa" delay={500} />
-          </div>
-        </div>
-      </section>
-
+      
       {/* Registration Section */}
       <section
         className="py-20 text-center text-white relative overflow-hidden bg-gradient-to-br from-purple-700 via-purple-600 to-blue-400"
@@ -246,7 +257,10 @@ function Campeonato() {
             <button className="bg-white text-purple-700 px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-2xl">
               INSCREVER AGORA
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-700 transition-all duration-300">
+            <button 
+              onClick={downloadRegulamento}
+              className="border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-700 transition-all duration-300"
+            >
               BAIXAR REGULAMENTO
             </button>
           </div>

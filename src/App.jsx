@@ -13,6 +13,7 @@ import {
   Sobre,
   RegisterPlayer,
   RegisterPlayerF,
+  Regulamento,
 } from "./components";
 
 
@@ -37,6 +38,7 @@ function App() {
         >
           <Route path="/painel" element={<HomeLogada />} />
           <Route path="/campeonato" element={<Campeonato/>}/>
+          <Route path="/regulamento" element={<Regulamento />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/jogadora" element={<RegisterPlayer />} />
           <Route path="/jogadoraF" element={<RegisterPlayerF />} />  

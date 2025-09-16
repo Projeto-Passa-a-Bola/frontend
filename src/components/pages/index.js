@@ -4,4 +4,5 @@ export { default as Campeonato } from './Campeonato';
 export { default as Inicio } from './Inicio';
 export { default as HomePageWrapper } from './HomePageWrapper';
 export { default as Sobre } from './Sobre';
+export { default as Regulamento } from './Regulamento';
 

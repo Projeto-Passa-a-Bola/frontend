@@ -5,24 +5,24 @@ function FormContact() {
 
   const faqs = [
     {
-      question: "What is finance analytics and how can it help my business?",
+      question: "Como eu posso participar do Campeonato?",
       answer:
-        "Finance analytics helps you understand your financial data better, so you can make smarter decisions, spot trends, and improve your business strategy.",
+        "Basta preencher o formulário de inscrição com seus dados e estará apata a participar.",
     },
     {
-      question: "How do I start using your finance analytics platform?",
+      question: "Eu tenho que pagar alguma coisa para participar?",
       answer:
-        "Simply sign up, connect your financial accounts, and you’ll start seeing insights within minutes.",
+        "Não, a participação no Campeonato é totalmente gratuita.",
     },
     {
-      question: "Is my financial data safe with your platform?",
+      question: "Tem que ser maior de idade para participar do campeonato?",
       answer:
-        "Yes, we use bank-grade encryption and security best practices to ensure your data is always safe and private.",
+        "Sim, é necessário ter 18 anos ou mais para se inscrever no campeonato.",
     },
     {
-      question: "Do you offer customer support?",
+      question: "Como posso entrar em contato com o suporte se eu tiver dúvidas?",
       answer:
-        "Absolutely! You can reach out via email or chat, and our support team will get back to you as soon as possible.",
+        "Você pode entrar em contato conosco através do botão de envio de email na seção de perguntas frequentes",
     },
   ];
 
@@ -36,25 +36,24 @@ function FormContact() {
         {/* Left Section */}
         <div>
           <span className="text-sm text-purple-500 font-semibold">
-            Dataluz SaaS analytics
+            FAQ
           </span>
           <h2 className="text-4xl font-bold mt-4 mb-6">
-            Frequently asked questions
+            Perguntas Frequentes
           </h2>
 
           <div className="bg-purple-50 p-6 rounded-xl shadow-sm">
             <h3 className="text-lg font-semibold mb-2">
-              Still have questions?
+              Continua com dúvidas?
             </h3>
             <p className="text-gray-600 text-sm mb-4">
-              Can’t find the answer to your question? Send us an email and
-              we’ll get back to you as soon as possible!
+              Não conseguiu encontrar a resposta que procurava? Entre em contato com nossa equipe de suporte.
             </p>
             <a
               href="mailto:support@yourcompany.com"
               className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 transition"
             >
-              Send email
+              Enviar E-mail
             </a>
           </div>
         </div>

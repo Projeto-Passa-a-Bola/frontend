@@ -1,5 +1,5 @@
 
-
+import React, { useState } from "react";
 function RegisterPlayer(){
     return(
         <>

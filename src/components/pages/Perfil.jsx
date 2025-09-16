@@ -15,8 +15,7 @@ function Perfil() {
     bio: '',
     posicao: '',
     idade: '',
-    altura: '',
-    peso: ''
+    
   });
 
   useEffect(() => {

@@ -93,8 +93,8 @@ function HomeLogada() {
                   <h2 className=" md:text-5xl text-purple-600 uppercase font-bold">Próximos Jogos</h2>
                 </div>
                 <p className='text-purple-600 md:text-2xl'>Conheça o nosso campeoanto</p>
-                <a href='campeonato' className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
-                    Conheça agora →
+                <a href='/chaveamento' className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
+                    Ver jogos
                 </a>
               </div>
             <div className="flex flex-col flex-3 gap-8 px-45 py-10">

@@ -1,6 +1,7 @@
 // src/components/Register.jsx
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPlayer() {
   const [name, setName] = useState("");
@@ -8,37 +9,39 @@ function RegisterPlayer() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmaSenha, setConfirmaSenha] = useState("");
+  const [tipoUsuario, setTipoUsuario] = useState(""); // Novo estado para a seleção de tipo
   const [erro, setErro] = useState("");
 
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (senha !== confirmaSenha) {
-    setErro('As senhas não coincidem!');
-    return;
-  }
+    if (senha !== confirmaSenha) {
+      setErro('As senhas não coincidem!');
+      return;
+    }
 
-  try {
-    const response = await fetch('http://localhost:3000/api/auth/register', { 
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Mude o corpo da requisição para corresponder aos nomes dos campos do seu backend
-      body: JSON.stringify({
-        name: nome + ' ' + sobrenome, // Concatena nome e sobrenome em um único campo
-        email: email,
-        senha: senha,
-        confirmasenha: confirmaSenha // Adiciona o campo de confirmação de senha
-      }),
-    });
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/register', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name + ' ' + lastName,
+          email: email,
+          senha: senha,
+          confirmasenha: confirmaSenha,
+          tipo: tipoUsuario, // Adiciona o tipo de usuário ao corpo da requisição
+        }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Verifica se a resposta foi bem-sucedida (status 200-299)
         alert("Registro bem-sucedido! Redirecionando para o login...");
-        navigate("/login"); // Redireciona para a página de login
+        navigate("/login");
       } else {
         setErro(data.message || "Erro ao registrar. Tente novamente.");
       }
@@ -47,6 +50,7 @@ function RegisterPlayer() {
       setErro("Erro de conexão com o servidor.");
     }
   };
+
   return (
     <div className='flex flex-row bg-gradient-to-br from-purple-600 via-purple-400 to-blue-400 h-screen'>
     <div className="relative flex items-center justify-center flex-2 p-10">
@@ -55,57 +59,61 @@ function RegisterPlayer() {
           Cadastro Jogadora
         </h2>
         <form onSubmit={handleRegister}>
+          {/* O problema está aqui, e foi corrigido abaixo */}
           <div className="mb-4 flex flex-row justify-between">
             <div id="escolha" className="flex flex-col items-center">
-                <label
+              <label
                 className="block text-black text-sm font-bold mb-2"
-                htmlFor="nacionalidade"
-                >
+                htmlFor="treinadora"
+              >
                 Treinadora
-                </label>
-                <input
+              </label>
+              <input
                 className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-                id="nacionalidade"
+                id="treinadora"
                 type="radio"
-                placeholder="Ex: Brasileira"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="tipoUsuario" // MESMO nome para agrupar
+                value="treinadora"
+                checked={tipoUsuario === "treinadora"}
+                onChange={(e) => setTipoUsuario(e.target.value)}
                 required
-                />
+              />
             </div>
             <div id="escolha" className="flex flex-col items-center">
-                <label
+              <label
                 className="block text-black text-sm font-bold mb-2"
-                htmlFor="nacionalidade"
-                >
+                htmlFor="jogadora"
+              >
                 Jogadora
-                </label>
-                <input
+              </label>
+              <input
                 className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-                id="nacionalidade"
+                id="jogadora"
                 type="radio"
-                placeholder="Ex: Brasileira"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="tipoUsuario" // MESMO nome para agrupar
+                value="jogadora"
+                checked={tipoUsuario === "jogadora"}
+                onChange={(e) => setTipoUsuario(e.target.value)}
                 required
-                />
+              />
             </div>
             <div id="escolha" className="flex flex-col items-center">
-                <label
+              <label
                 className="block text-black text-sm font-bold mb-2"
-                htmlFor="nacionalidade"
-                >
+                htmlFor="ambas"
+              >
                 Ambas
-                </label>
-                <input
+              </label>
+              <input
                 className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-                id="nacionalidade"
+                id="ambas"
                 type="radio"
-                placeholder="Ex: Brasileira"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="tipoUsuario" // MESMO nome para agrupar
+                value="ambas"
+                checked={tipoUsuario === "ambas"}
+                onChange={(e) => setTipoUsuario(e.target.value)}
                 required
-                />
+              />
             </div>
           </div>
           <div className="mb-4">
@@ -128,7 +136,7 @@ function RegisterPlayer() {
           <div className="mb-4">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="email"
+              htmlFor="camiseta"
             >
               Numero da camiseta
             </label>
@@ -145,7 +153,7 @@ function RegisterPlayer() {
           <div className="flex flex-col">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="confirmaSenha"
+              htmlFor="uploadrg"
             >
               Foto do rosto
             </label>
@@ -163,7 +171,7 @@ function RegisterPlayer() {
                 <span className="font-bold">UPLOAD</span>
               </label>
             </div>
-          </div>       
+          </div> 
           {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
           <div className="flex items-center justify-between">
             <button

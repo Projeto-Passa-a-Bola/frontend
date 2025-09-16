@@ -1,44 +1,40 @@
 // src/components/Register.jsx
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPlayer() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmaSenha, setConfirmaSenha] = useState("");
   const [erro, setErro] = useState("");
 
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (senha !== confirmaSenha) {
-    setErro('As senhas não coincidem!');
-    return;
-  }
-
-  try {
-    const response = await fetch('http://localhost:3000/api/auth/register', { 
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Mude o corpo da requisição para corresponder aos nomes dos campos do seu backend
-      body: JSON.stringify({
-        name: nome + ' ' + sobrenome, // Concatena nome e sobrenome em um único campo
-        email: email,
-        senha: senha,
-        confirmasenha: confirmaSenha // Adiciona o campo de confirmação de senha
-      }),
-    });
+    // A validação de campos obrigatórios já é feita pelo atributo 'required' nos inputs.
+    // Se a chamada à API for bem-sucedida, o formulário prossegue.
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/register', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // O corpo da requisição foi ajustado para refletir os campos restantes
+        body: JSON.stringify({
+          name: name,
+          cpf: lastName,
+          telefone: email,
+        }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Verifica se a resposta foi bem-sucedida (status 200-299)
-        alert("Registro bem-sucedido! Redirecionando para o login...");
-        navigate("/login"); // Redireciona para a página de login
+        alert("Registro bem-sucedido! Redirecionando para a próxima etapa...");
+        navigate("/jogadoraF");
       } else {
         setErro(data.message || "Erro ao registrar. Tente novamente.");
       }
@@ -47,6 +43,7 @@ function RegisterPlayer() {
       setErro("Erro de conexão com o servidor.");
     }
   };
+
   return (
     <div className='flex flex-row bg-gradient-to-br from-purple-600 via-purple-400 to-blue-400 h-screen'>
     <div className="relative flex items-center justify-center flex-2 p-10">
@@ -65,7 +62,7 @@ function RegisterPlayer() {
             <input
               className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
               id="nacionalidade"
-              type=""
+              type="text"
               placeholder="Ex: Brasileira"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -92,13 +89,13 @@ function RegisterPlayer() {
           <div className="mb-4">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="email"
+              htmlFor="telefone"
             >
               Telefone
             </label>
             <input
               className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="email"
+              id="telefone"
               type="tel"
               placeholder="Ex: (DD)99999-9999"
               value={email}
@@ -106,43 +103,24 @@ function RegisterPlayer() {
               required
             />
           </div>
-          {/* <div className="mb-4">
-            <label
-              className="block text-black text-sm font-bold mb-2"
-              htmlFor="senha"
-            >
-              Posição
-            </label>
-            <input
-              className="w-full px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="text"
-              type="password"
-              placeholder="Ex: Goleiro"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
-          </div> */}
           <div className="mb-6">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="confirmaSenha"
+              htmlFor="dataNascimento"
             >
               Data de Nascimento
             </label>
             <input
               className="w-full px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="confirmaSenha"
+              id="dataNascimento"
               type="date"
-              value={confirmaSenha}
-              onChange={(e) => setConfirmaSenha(e.target.value)}
               required
             />
           </div>
           <div className="flex flex-col">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="confirmaSenha"
+              htmlFor="uploadrg"
             >
               Foto RG
             </label>
@@ -163,13 +141,12 @@ function RegisterPlayer() {
           </div>
           {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
           <div className="flex items-center justify-between">
-            <a
-              href="jogadoraF"
-              className="w-full text-center bg-gradient-to-r from-purple-500 to-purple-400 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
+            <button
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-400 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
               type="submit"
             >
               Continuar
-            </a>
+            </button>
           </div>
         </form>
       </div>

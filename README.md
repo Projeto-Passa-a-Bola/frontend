@@ -1,12 +1,74 @@
-# React + Vite
+# ⚽ Passa a Bola: Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório do frontend da plataforma **Passa a Bola**, um projeto que visa conectar jogadoras e treinadoras de futebol feminino, facilitando a gestão de times, a busca por talentos e a organização de competições.
 
-Currently, two official plugins are available:
+### 👥 Grupo de Desenvolvimento (Grupo Insight)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido por:
 
-## Expanding the ESLint configuration
+* **Bruno Scuciato** - RM: 562159
+* **João Basta** - RM: 565383
+* **Kelwin Silva** - RM: 566348
+* **Luiz Balbino** - RM: 566222
+* **Pedro Almeida** - RM: 564711
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🚀 Tecnologias Utilizadas
+
+O frontend do projeto foi construído utilizando um ecossistema de ferramentas modernas, incluindo:
+
+* **React**: Biblioteca para a criação de interfaces de usuário reativas.
+* **Vite**: Ferramenta de build extremamente rápida e otimizada.
+* **Tailwind CSS**: Um framework CSS utilitário para estilização ágil e responsiva.
+* **React Router Dom**: Gerenciamento de navegação e rotas na aplicação.
+
+---
+
+### 📋 Funcionalidades Principais
+
+A plataforma oferece as seguintes funcionalidades principais no frontend:
+
+* **Página Principal (Painel)**: Uma landing page interativa com seções de resumo, informações sobre a copa e contato.
+* **Sistema de Autenticação**: Páginas dedicadas para **Cadastro** e **Login** de usuários.
+* **Formulário de Cadastro**: Formulário de múltiplas etapas para o cadastro de jogadoras e treinadoras, coletando informações como nacionalidade, CPF e data de nascimento.
+
+---
+
+### 🛠️ Configuração e Instalação
+
+Para rodar o projeto em seu ambiente de desenvolvimento local, siga os passos abaixo.
+
+#### Pré-requisitos
+
+Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmjs.com/) (ou [Yarn](https://yarnpkg.com/)) instalados em sua máquina.
+
+#### Passo a Passo
+
+1.  Clone este repositório para a sua máquina:
+
+    ```bash
+    git clone <URL_DO_REPOSITÓRIO>
+    cd <NOME_DO_PROJETO>
+    ```
+
+2.  Instale as dependências do projeto:
+
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3.  Inicie o servidor de desenvolvimento:
+
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+
+O aplicativo estará disponível em `http://localhost:5173`.
+
+---
+

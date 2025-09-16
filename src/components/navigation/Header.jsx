@@ -1,36 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 function Header() {
+  const location = useLocation();
+
+  const isPanelPage = location.pathname === '/';
+
+  const NavLink = ({ to, children }) => {
+    return isPanelPage ? (
+      <a
+        href={to}
+        className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
+      >
+        {children}
+      </a>
+    ) : (
+      <Link
+        to={`/${to}`}
+        className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
+      >
+        {children}
+      </Link>
+    );
+  };
+
   return (
     <>
       <div className="bg-white flex flex-row items-center justify-between p-5 px-85">
-        <a href="#hero">
+        <Link to="/">
           <img src="../public/logoRoxa.png" alt="logo" className="w-10 h-10" />
-        </a>
+        </Link>
         <div id="nav-bar" className="flex justify-center items-center">
-          <ul className="flex flex-row gap-15 font-medium text-(color:--text-secondary) text-lg">
+          <ul className="flex flex-row gap-15 font-medium text-text-secondary text-lg">
             <li>
-              <a
-                href="#resumo"
-                className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
-              >
+              <NavLink to="#resumo">
                 Resumo
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href=""
-                className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
-              >
+              <NavLink to="#copa">
                 Copa
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="#footer"
-                className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
-              >
+              <NavLink to="#footer">
                 Contato
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -47,7 +61,6 @@ function Header() {
           >
             Cadastro
           </Link>
-          {/* <button className="p-1 bg-slate-200 cursor-pointer rounded-lg shadow-lg">D</button> */}
         </div>
       </div>
     </>

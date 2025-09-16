@@ -11,7 +11,7 @@ function HeaderLogado() {
           <ul className="flex flex-row gap-15 font-medium text-(color:--text-secondary) text-lg">
             <li>
               <a
-                href="#resumo"
+                href="#home"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Home
@@ -19,7 +19,7 @@ function HeaderLogado() {
             </li>
             <li>
               <a
-                href=""
+                href="campeonato"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Campeonato
@@ -27,7 +27,7 @@ function HeaderLogado() {
             </li>
             <li>
               <a
-                href="#footer"
+                href="#sobre"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Sobre
@@ -39,6 +39,14 @@ function HeaderLogado() {
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
                 Contato
+              </a>
+            </li>
+            <li>
+              <a
+                href="#perfil"
+                className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
+              >
+                Perfil
               </a>
             </li>
           </ul>

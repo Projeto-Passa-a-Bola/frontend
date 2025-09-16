@@ -1,5 +1,5 @@
 // src/components/PrivateLayout.jsx
-import { HeaderLogado } from "../navigation";
+import { Footer, HeaderLogado } from "../navigation";
 import { Outlet } from "react-router-dom";
 
 function PrivateLayout() {
@@ -9,6 +9,7 @@ function PrivateLayout() {
       <main className="min-h-screen p-6">
         <Outlet /> {/* Aqui entram as páginas privadas */}
       </main>
+      <Footer/>
     </>
   );
 }

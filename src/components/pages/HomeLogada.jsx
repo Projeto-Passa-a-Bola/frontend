@@ -1,5 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import FormContact from "../ui/FormContact";
+import SideNav from "../ui/SideNav";
 
 function HomeLogada() {
   const navigate = useNavigate();
@@ -39,24 +41,24 @@ function HomeLogada() {
     }
   ];
 
+  const pageSections = [
+    { id: "hero", label: "Início" },
+    { id: "jogos", label: "Jogos" },
+    { id: "forms", label: "Perguntas" },
+  ];
+
   return (
     <>
       <div className="overflow-x-hidden">
+        <SideNav sections={pageSections}/>
         {/* Seção de Boas-vindas */}
-        <div id="Hero" className="relative flex flex-col justify-center items-center p-8 md:p-16 lg:px-24 xl:px-40 min-h-screen">
-                        {/* Contêiner do Vídeo de Fundo */}
-                        <div className="absolute inset-0 z-0 overflow-hidden bg-[url(../../public/resumoImg.png)] bg-no-repeat bg-cover bg-center">
-                        </div>
-        
-                        {/* Camada de Escurecimento (Overlay) */}
-                        <div className="absolute inset-0 z-0 bg-black opacity-50"></div>
-        
+        <section id="hero" className="relative flex flex-col justify-center items-center p-8 md:p-16 lg:px-24 xl:px-40 min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100" >
                         {/* Conteúdo por cima do vídeo e do overlay */}
                         <div className="relative z-10 flex flex-col items-center text-center gap-8 md:gap-12 lg:gap-16 max-w-4xl mx-auto">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
                                 Passa a <span className="text-purple-500">Bola</span>
                             </h1>
-                            <p className="text-base md:text-lg lg:text-2xl text-white">
+                            <p className="text-base md:text-lg lg:text-2xl text-black">
                                 A plataforma profissional que conecta atletas, técnicos e organizações do futebol feminino. Transformando carreiras e elevando o esporte a um novo patamar.
                             </p>
                             <button className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
@@ -66,28 +68,32 @@ function HomeLogada() {
                             <div id="Pesquisa" className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
                                 <div className="flex flex-col items-center justify-center gap-2">
                                     <h1 className="text-3xl md:text-4xl text-purple-500 font-bold">1.2K+</h1>
-                                    <p className="text-sm md:text-base text-white font-semibold">Atletas Profissionais</p>
+                                    <p className="text-sm md:text-base text-black font-semibold">Atletas Profissionais</p>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-2">
                                     <h1 className="text-3xl md:text-4xl text-purple-500 font-bold">150+</h1>
-                                    <p className="text-sm md:text-base text-white font-semibold">Clubes Parceiros</p>
+                                    <p className="text-sm md:text-base text-black font-semibold">Clubes Parceiros</p>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-2">
                                     <h1 className="text-3xl md:text-4xl text-purple-500 font-bold">50+</h1>
-                                    <p className="text-sm md:text-base text-white font-semibold">Competições</p>
+                                    <p className="text-sm md:text-base text-black font-semibold">Competições</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
         {/* Seção de Próximos Jogos */}
-        <div className="bg-gradient-to-bl from-purple-500 to-blue-400">
+        <section id="jogos" className="bg-gradient-to-bl from-purple-100 via-white to-purple-50">
           <div className='py-25'>
             <div className='flex'> 
-              <div className='flex-4'>
-                <div className="p-10 px-20 bg-white rounded-r-xl w-fit">
-                  <h2 className="text-2xl md:text-4xl text-purple-600 uppercase font-bold">Próximos Jogos</h2>
+              <div className='flex-4 flex flex-col justify-center items-center gap-5'>
+                <div className="bg-white rounded-r-xl w-fit">
+                  <h2 className=" md:text-5xl text-purple-600 uppercase font-bold">Próximos Jogos</h2>
                 </div>
+                <p className='text-purple-600 md:text-2xl'>Conheça o nosso campeoanto</p>
+                <a href='campeonato' className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
+                    Conheça agora →
+                </a>
               </div>
             <div className="flex flex-col flex-3 gap-8 px-45 py-10">
               {proximosJogos.map((jogo) => (
@@ -113,27 +119,11 @@ function HomeLogada() {
               </div>
             </div>
           </div>
-        </div>
-        <div id='patrocinadores'>
-            <div className='py-100 bg-gradient-to-br from-blue-100 to-purple-500'>
-                <div className="p-10 px-20 bg-white rounded-r-xl w-fit">
-                  <h2 className="text-2xl md:text-4xl text-purple-600 uppercase font-bold">Patrocinadores</h2>
-                </div>
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="..."/>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="..."/>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="..."/>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-        </div>
+        </section>
+        <section id='forms'>
+          <FormContact />
+        </section>
+        
       </div>
     </>
   );

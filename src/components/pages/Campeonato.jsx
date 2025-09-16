@@ -146,9 +146,8 @@ function Campeonato() {
       <section id="inicio" className="min-h-screen relative overflow-hidden">
         {/* Hero background gradient */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-3/5 opacity-80 z-0"
+          className="absolute right-0 top-0 bottom-0 w-3/5 opacity-80 z-0 bg-gradient-to-br from-purple-700 via-purple-600 to-blue-400"
           style={{
-            background: 'var(--gradient-hero)',
             clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)',
           }}
         />
@@ -171,9 +170,9 @@ function Campeonato() {
                 a paixão e a determinação das mulheres no esporte mais amado do Brasil.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-copa-primary text-lg px-8 py-3">INSCREVER EQUIPE</button>
-                <button className="btn-copa-secondary text-lg px-8 py-3">VER REGULAMENTO</button>
+              <div className="flex flex-col sm:flex-row gap-14">
+                <a href="#" className="btn-copa-primary text-lg py-3">INSCREVER EQUIPE</a>
+                <a href="#" className="btn-copa-secondary text-lg py-3">VER REGULAMENTO</a>
               </div>
             </div>
 
@@ -225,8 +224,7 @@ function Campeonato() {
 
       {/* Registration Section */}
       <section
-        className="py-20 text-center text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, hsl(250 47% 11%), hsl(250 100% 50%))' }}
+        className="py-20 text-center text-white relative overflow-hidden bg-gradient-to-br from-purple-700 via-purple-600 to-blue-400"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">

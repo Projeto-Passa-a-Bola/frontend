@@ -235,13 +235,13 @@ const Sobre = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contato" className="py-20 px-4 bg-gradient-to-r from-gray-800 via-purple-900 to-gray-800 text-white">
+      <section id="contato" className="py-20 px-4 0 bg-purple-500 ">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Faça Parte da Nossa História</h2>
+          <h2 className="text-4xl font-bold mb-6 text-white">Faça Parte da Nossa História</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto text-pretty">
             Junte-se a nós nessa jornada de transformação. Juntas, somos mais fortes!
           </p>
-          <button className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
+          <button className="bg-white hover:bg-purple-700 hover:text-white text-black cursor-pointer font-bold py-4 px-8 rounded-3xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
             Entre em Contato
           </button>
         </div>

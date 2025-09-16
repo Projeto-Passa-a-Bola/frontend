@@ -5,7 +5,7 @@ function Inicio() {
     return (
         // Adicione overflow-x-hidden para evitar a barra de rolagem horizontal na página inteira
         <div className="overflow-x-hidden">
-            <div id="Hero" className="relative flex flex-col justify-center items-center p-8 md:p-16 lg:px-24 xl:px-40 min-h-screen">
+            <section id="Hero" className="relative flex flex-col justify-center items-center p-8 md:p-16 lg:px-24 xl:px-40 min-h-screen">
                 {/* Contêiner do Vídeo de Fundo */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                     <video
@@ -47,14 +47,14 @@ function Inicio() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Seção de Resumo */}
-            <div id="resumo" className="bg-purple-500 flex flex-col lg:flex-row p-8 lg:p-16 gap-8">
+            <section id="resumo" className="bg-purple-500 flex flex-col lg:flex-row py-10 gap-8">
 
                 {/* Esquerda do Resumo */}
                 <div id="esquerdaResumo" className="flex flex-col gap-8 md:gap-16 lg:w-2/3">
-                    <div className="py-6 px-12 bg-amber-50 rounded-r-3xl  w-fit">
+                    <div className="py-6 px-42 bg-amber-50 rounded-r-xl  w-fit">
                         <h1 className="text-purple-500 uppercase font-bold text-2xl md:text-4xl">Resumo</h1>
                     </div>
 
@@ -86,7 +86,7 @@ function Inicio() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <FormContact />
         </div>
     );

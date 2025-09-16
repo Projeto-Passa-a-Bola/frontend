@@ -14,7 +14,7 @@ function HeaderLogado() {
                 href="#resumo"
                 className="hover:text-purple-600 ease-out duration-100 hover:border-b-4 p-1"
               >
-                home
+                Home
               </a>
             </li>
             <li>

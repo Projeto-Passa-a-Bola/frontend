@@ -61,7 +61,9 @@ function HomeLogada() {
                             <p className="text-base md:text-lg lg:text-2xl text-black">
                                 A plataforma profissional que conecta atletas, técnicos e organizações do futebol feminino. Transformando carreiras e elevando o esporte a um novo patamar.
                             </p>
-                            <button className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
+                            <button 
+                                onClick={() => navigate('/campeonato')}
+                                className="px-8 py-3 w-fit text-lg font-bold rounded-xl cursor-pointer text-white bg-gradient-to-r from-purple-500 to-violet-500 shadow-lg hover:scale-105 transition-transform duration-300">
                                 Comece Agora →
                             </button>
         

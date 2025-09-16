@@ -48,7 +48,7 @@ function Register() {
     }
   };
   return (
-    <div className='flex flex-row bg-gradient-to-br from-purple-500 to-blue-400 h-screen'>
+    <div className='flex flex-row bg-gradient-to-br from-purple-600 via-purple-400 to-blue-400 h-screen'>
     <div className="relative flex items-center justify-center flex-2 p-10">
       <div className="relative flex flex-col p-15 px-20 gap-10 bg-zinc-100 rounded-2xl shadow-md">
         <h2 className="text-2xl font-bold text-center text-black">

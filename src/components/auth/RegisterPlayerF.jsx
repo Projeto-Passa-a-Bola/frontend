@@ -50,40 +50,76 @@ function RegisterPlayer() {
   return (
     <div className='flex flex-row bg-gradient-to-br from-purple-600 via-purple-400 to-blue-400 h-screen'>
     <div className="relative flex items-center justify-center flex-2 p-10">
-      <div className="relative flex flex-col p-15 px-20 gap-10 bg-zinc-100 rounded-2xl shadow-md">
+      <div className="relative flex flex-col p-15 px-20 gap-20 bg-zinc-100 rounded-2xl shadow-md">
         <h2 className="text-2xl font-bold text-center text-black">
           Cadastro Jogadora
         </h2>
         <form onSubmit={handleRegister}>
-          <div className="mb-4">
-            <label
-              className="block text-black text-sm font-bold mb-2"
-              htmlFor="nacionalidade"
-            >
-              Nacionalidade
-            </label>
-            <input
-              className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="nacionalidade"
-              type=""
-              placeholder="Ex: Brasileira"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+          <div className="mb-4 flex flex-row justify-between">
+            <div id="escolha" className="flex flex-col items-center">
+                <label
+                className="block text-black text-sm font-bold mb-2"
+                htmlFor="nacionalidade"
+                >
+                Treinadora
+                </label>
+                <input
+                className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
+                id="nacionalidade"
+                type="radio"
+                placeholder="Ex: Brasileira"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                />
+            </div>
+            <div id="escolha" className="flex flex-col items-center">
+                <label
+                className="block text-black text-sm font-bold mb-2"
+                htmlFor="nacionalidade"
+                >
+                Jogadora
+                </label>
+                <input
+                className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
+                id="nacionalidade"
+                type="radio"
+                placeholder="Ex: Brasileira"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                />
+            </div>
+            <div id="escolha" className="flex flex-col items-center">
+                <label
+                className="block text-black text-sm font-bold mb-2"
+                htmlFor="nacionalidade"
+                >
+                Ambas
+                </label>
+                <input
+                className="px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
+                id="nacionalidade"
+                type="radio"
+                placeholder="Ex: Brasileira"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                />
+            </div>
           </div>
           <div className="mb-4">
             <label
               className="block text-black text-sm font-bold mb-2"
-              htmlFor="cpf"
+              htmlFor="posicao"
             >
-              CPF
+              Posição
             </label>
             <input
               className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="cpf"
+              id="posicao"
               type="text"
-              placeholder="Ex: 123456789-12"
+              placeholder="Ex: Goleira"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
@@ -94,57 +130,24 @@ function RegisterPlayer() {
               className="block text-black text-sm font-bold mb-2"
               htmlFor="email"
             >
-              Telefone
+              Numero da camiseta
             </label>
             <input
               className="w-100 px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="email"
-              type="tel"
-              placeholder="Ex: (DD)99999-9999"
+              id="camiseta"
+              type="number"
+              placeholder="Ex: 10"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-          </div>
-          {/* <div className="mb-4">
-            <label
-              className="block text-black text-sm font-bold mb-2"
-              htmlFor="senha"
-            >
-              Posição
-            </label>
-            <input
-              className="w-full px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="text"
-              type="password"
-              placeholder="Ex: Goleiro"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
-          </div> */}
-          <div className="mb-6">
-            <label
-              className="block text-black text-sm font-bold mb-2"
-              htmlFor="confirmaSenha"
-            >
-              Data de Nascimento
-            </label>
-            <input
-              className="w-full px-3 py-2 text-black border focus:outline-none focus:ring-2 focus:ring-purple-500 border-t-0 border-l-0 border-r-0 border-b-1 border-purple-800"
-              id="confirmaSenha"
-              type="date"
-              value={confirmaSenha}
-              onChange={(e) => setConfirmaSenha(e.target.value)}
-              required
-            />
-          </div>
+          </div> 
           <div className="flex flex-col">
             <label
               className="block text-black text-sm font-bold mb-2"
               htmlFor="confirmaSenha"
             >
-              Foto RG
+              Foto do rosto
             </label>
             <div className="flex justify-center items-center mb-5">
               <input
@@ -160,16 +163,15 @@ function RegisterPlayer() {
                 <span className="font-bold">UPLOAD</span>
               </label>
             </div>
-          </div>
+          </div>       
           {erro && <p className="text-red-500 text-sm mb-4">{erro}</p>}
           <div className="flex items-center justify-between">
-            <a
-              href="jogadoraF"
-              className="w-full text-center bg-gradient-to-r from-purple-500 to-purple-400 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
+            <button
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-400 cursor-pointer text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300"
               type="submit"
             >
-              Continuar
-            </a>
+              Finalizar
+            </button>
           </div>
         </form>
       </div>

@@ -1,3 +1,4 @@
+import ChaveamentoTeste from "../ui/ChaveamentoTeste";
 import FormContact from "../ui/FormContact";
 import video from "/videoInicio.mp4";
 
@@ -65,8 +66,9 @@ function Inicio() {
                             className="rounded-xl w-full md:w-1/2 lg:w-1/3 h-auto object-cover"
                         />
                         <p className="text-zinc-700 text-sm md:text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed vulputate justo. Quisque ac metus venenatis, interdum sem sed, tristique purus. Pellentesque et iaculis nibh. Etiam turpis eros, vehicula quis condimentum nec, blandit a ante. Nunc id ligula vel mauris fermentum tristique. Ut tortor felis, pretium a ligula ac, porttitor iaculis lectus. Cras urna sapien, volutpat consectetur vulputate sit amet, ultricies non libero. Proin sagittis enim nulla, id suscipit dolor placerat ac. Proin purus quam, fringilla eu pharetra a, molestie id diam. Sed tortor dolor, malesuada id nulla ut, pellentesque commodo lorem. Vestibulum sit amet tortor vel ante finibus rutrum et egestas urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                        </p>
+A iniciativa "Passa a Bola" nasceu da paixão de Ale Xavier e Luana Maluf pelo futebol e da necessidade de criar um espaço onde as mulheres pudessem ser protagonistas. Antes mesmo do sucesso no YouTube, Luana já organizava encontros semanais em São Paulo que reuniam cerca de 300 meninas para jogar bola, um projeto que já carregava o nome Passa a Bola.
+
+Em 2021, Luana uniu-se a Ale, que vinha de uma experiência no canal Desimpedidos e sentia falta de um conteúdo esportivo com um olhar feminino, para transformar o projeto em algo maior. Juntas, elas criaram o canal Passa a Bola, que rapidamente se tornou o maior canal sobre futebol produzido por mulheres no Brasil. O objetivo da dupla vai além das quatro linhas: elas buscam gerar debates importantes sobre o universo do futebol, abrir cada vez mais portas para meninas e mulheres no esporte e construir uma comunidade forte e engajada.                        </p>
                     </div>
                 </div>
 
@@ -81,12 +83,14 @@ function Inicio() {
                                 className="w-full h-auto max-w-xs rounded-xl"
                             />
                             <p className="text-zinc-700 text-sm md:text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed vulputate justo. Quisque ac metus venenatis, interdum sem sed, tristique purus. Pellentesque et iaculis nibh. Etiam turpis eros, vehicula quis condimentum nec, blandit a ante. Nunc id ligula vel mauris fermentum tristique. Ut tortor felis, pretium a ligula ac, porttitor iaculis lectus. Cras urna sapien, volutpat consectetur vulputate sit amet, ultricies non libero. Proin sagittis enim nulla, id suscipit dolor placerat ac. Proin purus quam, fringilla eu pharetra a, molestie id diam. Sed tortor dolor, malesuada id nulla ut, pellentesque commodo lorem. Vestibulum sit amet tortor vel ante finibus rutrum et egestas urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                            </p>
+A Copa Passa a Bola é um dos projetos mais importantes criados por Ale Xavier e Luana Maluf, sendo a materialização do propósito de fortalecer o futebol feminino na prática. O torneio de futebol society foi idealizado para dar a mais meninas e mulheres a oportunidade de competir, se divertir e, principalmente, de encontrar um ambiente seguro e acolhedor para jogar.
+
+A competição busca resolver uma dificuldade comum para as mulheres que amam o esporte: a falta de campeonatos e a dificuldade de conectar times e jogadoras. A Copa Passa a Bola não é apenas sobre o jogo, mas sobre celebrar o talento feminino, promover novas amizades e inspirar uma nova geração de atletas, mostrando que toda mulher que sonha em jogar futebol pode e deve ter seu espaço garantido.                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+            <ChaveamentoTeste />
             <FormContact />
         </div>
     );

@@ -3,8 +3,31 @@ import React from 'react';
 const ChaveamentoCompleto = () => {
   const teams = [
     'Time A', 'Time B', 'Time C', 'Time D', 'Time E', 'Time F',
-    'Time G', 'Time H', 'Time I', 'Time J', 'Time K', 'Time L'
+    'Time G', 'Time H', 'Time I', 'Time J', 'Time K', 'Time L',
   ];
+
+  // Randomly shuffle the teams array
+  for (let i = teams.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [teams[i], teams[j]] = [teams[j], teams[i]]; // Swap elements
+  }
+
+  // Create separate variables for each match
+  const partida1 = [teams[0], teams[1]];
+  const partida2 = [teams[2], teams[3]];
+  const partida3 = [teams[4], teams[5]];
+  const partida4 = [teams[6], teams[7]];
+  const partida5 = [teams[8], teams[9]];
+  const partida6 = [teams[10], teams[11]];
+
+  // Log the variables to the console to see the results
+  console.log('--- Partidas Geradas ---');
+  console.log('Partida 1:', partida1);
+  console.log('Partida 2:', partida2);
+  console.log('Partida 3:', partida3);
+  console.log('Partida 4:', partida4);
+  console.log('Partida 5:', partida5);
+  console.log('Partida 6:', partida6);
 
   // Componente para renderizar uma partida
   const MatchBox = ({ team1, team2, isSpecial = false, specialText = null }) => (

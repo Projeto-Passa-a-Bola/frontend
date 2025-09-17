@@ -1,5 +1,6 @@
 import ChaveamentoTeste from "../ui/ChaveamentoTeste";
 import FormContact from "../ui/FormContact";
+import ChaveamentoCompleto from "./Chaveamento";
 import video from "/videoInicio.mp4";
 
 function Inicio() {
@@ -90,7 +91,7 @@ A competição busca resolver uma dificuldade comum para as mulheres que amam o 
                     </div>
                 </div>
             </section>
-            <ChaveamentoTeste />
+            <ChaveamentoCompleto />
             <FormContact />
         </div>
     );

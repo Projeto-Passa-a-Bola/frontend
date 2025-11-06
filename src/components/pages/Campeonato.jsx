@@ -94,6 +94,7 @@ function Campeonato() {
         { label: 'Regulamento', href: '/regulamento', icon: FileText },
         { label: 'Jogos', href: 'Colocar rota de jogos', icon: Calendar },
         { label: 'Estatísticas', href: '#inscricoes', icon: BarChart3 },
+        { label: 'Dashboard', href: '/dashboard', icon: BarChart3 },
     ];
 
     return (

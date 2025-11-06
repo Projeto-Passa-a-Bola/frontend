@@ -16,6 +16,7 @@ import {
   Regulamento,
   Perfil,
   Chaveamento,
+  Dashboard,
 } from "./components";
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/campeonato" element={<Campeonato/>}/>
           <Route path="/chaveamento" element={<Chaveamento />} />
           <Route path="/regulamento" element={<Regulamento />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/jogadora" element={<RegisterPlayer />} />
           <Route path="/jogadoraF" element={<RegisterPlayerF />} />

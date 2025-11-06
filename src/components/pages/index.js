@@ -7,4 +7,5 @@ export { default as Sobre } from './Sobre';
 export { default as Regulamento } from './Regulamento';
 export { default as Perfil } from './Perfil';
 export { default as Chaveamento } from './Chaveamento';
+// export { default as Estatisticas } from './Estatisticas';
 

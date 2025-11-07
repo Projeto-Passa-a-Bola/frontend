@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Importado navigate e Link
-import { UserPlus, User, Mail, Lock } from 'lucide-react'; // Ícones para melhorar a estética
+import { useNavigate, Link } from "react-router-dom";
+import { UserPlus, User, Mail, Lock } from 'lucide-react';
+// Importamos o authService do seu api.js (assumindo que o caminho está correto)
+import { authService } from '../../services/api'; // <--- AJUSTE ESTE CAMINHO
 
 // Variável global para a URL base da API
-// Assume que esta variável está acessível via um arquivo de configuração ou api.js
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// IMPORTANTE: Esta linha não é necessária se você usar o apiRequest do api.js
+// const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 
 function Register() {
@@ -15,7 +17,7 @@ function Register() {
   const [confirmaSenha, setConfirmaSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const navigate = useNavigate(); // Inicializado useNavigate
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -25,47 +27,33 @@ function Register() {
       return;
     }
 
-    // Limpa erro anterior antes de tentar o registro
     setErro('');
 
     try {
-      // CORREÇÃO CRUCIAL: Usando API_BASE_URL
-      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // O corpo da requisição foi ajustado para refletir a concatenação e os campos de senha
-        body: JSON.stringify({
-          name: name + ' ' + lastName, // Concatena nome e sobrenome
-          email: email,
-          senha: senha,
-          confirmasenha: confirmaSenha
-        }),
+      // CORREÇÃO: Usando authService do api.js
+      await authService.register({
+        name: name + ' ' + lastName, // Concatena nome e sobrenome
+        email: email,
+        senha: senha,
+        confirmasenha: confirmaSenha
       });
 
-      const data = await response.json();
+      // Se o registro for bem-sucedido (não houve throw de erro)
+      navigate("/login");
 
-      if (response.ok) {
-        // Em vez de alert(), definimos uma mensagem de sucesso ou navegamos
-        navigate("/login");
-      } else {
-        setErro(data.message || "Erro ao registrar. Tente novamente.");
-      }
     } catch (error) {
       console.error("Erro na requisição:", error);
-      setErro("Erro ao tentar conectar à API. Verifique sua conexão e CORS.");
+      // O api.js já trata 401 e erros de conexão.
+      setErro(error.message || "Erro de conexão/API. Tente novamente.");
     }
   };
 
   return (
-    // Layout Responsivo: flex-col em mobile, flex-row em lg:
+    // ... (JSX Mantido)
     <div className='flex flex-col lg:flex-row bg-gradient-to-br from-purple-600 via-purple-400 to-blue-400 min-h-screen overflow-x-hidden'>
 
-      {/* SEÇÃO 1: Formulário de Cadastro (Sempre visível, ocupa 100% da largura em mobile) */}
       <div className="relative flex items-center justify-center w-full lg:w-1/2 p-4 sm:p-8">
 
-        {/* Card do Formulário: Usando a mesma estilização do Login */}
         <div className="relative flex flex-col p-6 sm:p-10 md:p-12 justify-center items-center bg-zinc-100/95 backdrop-blur-sm rounded-2xl shadow-2xl shadow-purple-900/50 w-full max-w-md">
 
           <div className="mb-6">
@@ -77,7 +65,6 @@ function Register() {
 
           <form onSubmit={handleRegister} className="w-full">
 
-            {/* Campo Nome e Sobrenome (Agrupados em 2 colunas a partir de sm) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
 
               <div className="relative">
@@ -111,7 +98,6 @@ function Register() {
               </div>
             </div>
 
-            {/* Campo E-mail */}
             <div className="mb-5 relative">
               <label className=" text-gray-700 text-sm font-bold mb-2 flex items-center" htmlFor="email">
                 <Mail className="w-4 h-4 mr-2 text-purple-500" /> E-mail
@@ -127,7 +113,6 @@ function Register() {
               />
             </div>
 
-            {/* Campo Senha */}
             <div className="mb-5 relative">
               <label className=" text-gray-700 text-sm font-bold mb-2 flex items-center" htmlFor="senha">
                 <Lock className="w-4 h-4 mr-2 text-purple-500" /> Senha
@@ -143,7 +128,6 @@ function Register() {
               />
             </div>
 
-            {/* Campo Confirma Senha */}
             <div className="mb-6 relative">
               <label className=" text-gray-700 text-sm font-bold mb-2 flex items-center" htmlFor="confirmaSenha">
                 <Lock className="w-4 h-4 mr-2 text-purple-500" /> Confirme a Senha

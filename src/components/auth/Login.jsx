@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { LogIn, User, Lock } from 'lucide-react';
+// IMPORTAÇÃO CORRETA DO SERVIÇO (AJUSTE O CAMINHO CONFORME SUA ESTRUTURA)
+import { authService } from '../../services/api'; // <--- ASSUMINDO O CAMINHO
 
-// Variável global para a URL base da API
-// Assume que esta variável está acessível via um arquivo de configuração ou api.js
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// REMOVEMOS: const API_BASE_URL = ... 
 
 
 function Login() {
@@ -19,28 +19,18 @@ function Login() {
     setErro(''); // Limpa erro anterior
 
     try {
-      // CORREÇÃO CRUCIAL: A rota deve usar /api/auth/login
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, senha: password }),
-      });
+      // CORREÇÃO CRUCIAL: Usando authService.login
+      const data = await authService.login({ email, senha: password });
 
-      const data = await response.json();
+      // Se não houver exceção, o login foi bem-sucedido:
+      localStorage.setItem('authToken', data.token);
+      navigate('/painel');
 
-      console.log('Resposta do backend:', data);
-
-      if (response.ok) {
-        localStorage.setItem('authToken', data.token);
-        navigate('/painel');
-      } else {
-        setErro(data.msg || 'E-mail ou senha incorretos.');
-      }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      setErro('Erro ao tentar conectar à API. Verifique sua conexão e CORS.');
+
+      // O api.js lança um erro, que pode ter a mensagem exata do backend.
+      setErro(error.message || 'Erro de conexão com o servidor. Tente novamente.');
     }
   };
 
@@ -116,8 +106,6 @@ function Login() {
       </div>
 
       {/* SEÇÃO 2: Imagem/Vídeo */}
-      {/* MUDANÇA 4: Oculta a seção em telas pequenas (padrão) e a exibe a partir de lg. */}
-      {/* MUDANÇA 5: Usa lg:w-1/2 para ocupar a outra metade da tela em desktop. */}
       <div id='direita' className='hidden lg:flex lg:w-1/2 items-center justify-center p-8 relative overflow-hidden'>
         {/* Ocultando a imagem com a classe 'hidden' para telas menores que LG (desktop) */}
         <img

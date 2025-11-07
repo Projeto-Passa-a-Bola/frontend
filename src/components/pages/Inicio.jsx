@@ -62,7 +62,7 @@ function Inicio() {
 
                     <div className="bg-amber-50 rounded-2xl flex flex-col md:flex-row p-6 items-center gap-6">
                         <img
-                            src="../public/resumoImg.png"
+                            src="/resumoImg.png"
                             alt="imagemExemplo"
                             className="rounded-xl w-full md:w-1/2 lg:w-1/3 h-auto object-cover"
                         />
@@ -79,7 +79,7 @@ Em 2021, Luana uniu-se a Ale, que vinha de uma experiência no canal Desimpedido
                         <div className="flex flex-col items-center gap-4 text-center">
                             <h1 className="text-purple-500 text-2xl md:text-3xl font-bold uppercase">Copa Passa a Bola</h1>
                             <img
-                                src="../public/copaTaca.png"
+                                src="/copaTaca.png"
                                 alt="foto"
                                 className="w-full h-auto max-w-xs rounded-xl"
                             />

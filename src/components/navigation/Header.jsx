@@ -81,7 +81,7 @@ function Header() {
         
         {/* Logo */}
         <Link to="/"> 
-          <img src="../public/logoRoxa.png" alt="logo" className="w-10 h-10" />
+          <img src="/logoRoxa.png" alt="logo" className="w-10 h-10" />
         </Link>
         
         {/* Ícone do Menu Hamburger (Mobile) */}

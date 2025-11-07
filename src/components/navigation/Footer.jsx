@@ -104,13 +104,13 @@ function Footer() {
           {/* Adicionado um fundo branco e padding para destacar os logos no fundo escuro */}
           <div className="flex items-center justify-around gap-2 bg-white p-3 rounded-lg h-30">
             <a href="https://www.adidas.com" target="_blank" rel="noopener noreferrer" title="Adidas">
-              <img src="../../../public/Adidas-Logo.webp" alt="Adidas" className="h-8 w-auto" />
+              <img src="/Adidas-Logo.webp" alt="Adidas" className="h-8 w-auto" />
             </a>
             <a href="https://www.gatorade.com" target="_blank" rel="noopener noreferrer" title="Gatorade">
-              <img src="../../../public/gatorade-logo.png" alt="Gatorade" className="h-8 w-auto" />
+              <img src="/gatorade-logo.png" alt="Gatorade" className="h-8 w-auto" />
             </a>
             <a href="https://www.redbull.com" target="_blank" rel="noopener noreferrer" title="Red Bull">
-              <img src="../../../public/redBull-logo.png" alt="Red Bull" className="h-18 w-auto" />
+              <img src="/redBull-logo.png" alt="Red Bull" className="h-18 w-auto" />
             </a>
           </div>
         </div>

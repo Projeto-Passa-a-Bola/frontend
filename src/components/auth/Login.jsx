@@ -19,7 +19,7 @@ function Login() {
     setErro(''); // Limpa erro anterior
 
     try {
-      // CORREÇÃO CRUCIAL: Usando API_BASE_URL
+      // CORREÇÃO CRUCIAL: A rota deve usar /api/auth/login
       const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
@@ -40,7 +40,6 @@ function Login() {
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      // O erro de conexão agora tentará acessar o Render ou localhost:3001
       setErro('Erro ao tentar conectar à API. Verifique sua conexão e CORS.');
     }
   };
@@ -103,8 +102,6 @@ function Login() {
               >
                 Entrar
               </button>
-              {/* O Link para /HomeLogada estava dentro do button, o que é um erro de semântica. 
-                  O botão deve ser do tipo submit e a navegação deve ocorrer no handleLogin. */}
             </div>
           </form>
 
